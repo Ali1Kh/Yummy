@@ -1,0 +1,59 @@
+/* !General */
+*{
+  color: white;
+}
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.fs-7{
+  font-size: 13px;
+}
+body{
+    background-color: #212529;
+}
+/*! Side Bar */
+.barBtn {
+  cursor: pointer;
+}
+.barBtn i {
+  transition: all 400ms;
+}
+.sideBarInner ul li a {
+  transition: color 500ms;
+}
+.sideBar .iconImage {
+  width: 40px;
+  height: 40px;
+}
+/* !Meals and categories*/
+.uiCardItem .cardImage , .areaCardItem , .ingredientsCardItem{
+    cursor: pointer;
+}
+.uiCardItem .cardImage .cardLayer {
+  transition: all 600ms;
+  top: 120%;
+}
+.uiCardItem .cardImage:hover .cardLayer{
+  top: 0%;
+  opacity: 1 !important;
+}
+/*! Meals Details */
+.recipes span{
+    color: black;
+    background-color: #cef4fd;
+}
+.tags span{
+    color: rgb(132, 32, 41);
+    font-size: 17px;
+    background-color: #e7c9cb;
+}
+/*!Search */
+.searchName input::placeholder,.searchLetter input::placeholder{
+    color: white;
+}
+/* !Area and Ingredients icons*/
+.cardIcon i{
+font-size: 50px;
+}
