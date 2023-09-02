@@ -136,4 +136,70 @@ export class ui {
     }
     $("main .row.mainRow").html(this.ingredientsContainer);
   }
+  displayContact() {
+    $("main .row.mainRow").html(`
+    <div class="contactContainer vh-100 d-flex flex-column align-items-center justify-content-center">
+    <div class="row mb-2 gy-2">
+        <div class="col-6">
+            <div class="mb-3">
+                <input id="name" type="text" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Enter Your Name">
+                    <div class="nameHint hint d-none mt-2 text-center rounded-3 p-2 w-100">
+                    <small class="text-danger">Please Enter Vaild Name</small>
+                    </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <input id="email" type="email" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Enter Your Email">
+                    <div class="emailHint hint d-none mt-2 text-center rounded-3 p-2 w-100">
+                    <small class="text-danger">Email not valid *exemple@yyyy.com</small>
+                    </div>
+            </div>
+            
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <input id="phone" type="text" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Enter Your Phone">
+                    <div class="phoneHint hint d-none mt-2 text-center rounded-3 p-2 w-100">
+                     <small class="text-danger">Enter valid Phone Number</small>
+                    </div>
+             </div>
+            </div>
+            
+        <div class="col-6">
+            <div class="mb-3 ">
+                <input id="age" min="0" max="100" type="number" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Enter Your Age">
+                    <div class="ageHint hint d-none mt-2 text-center rounded-3 p-2 w-100">
+                     <small class="text-danger">Enter valid age</small>
+                    </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <input id="pass" type="password" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Enter Your Password">
+                    <div class="passHint hint d-none mt-2 text-center rounded-3 p-2 w-100">
+                     <small class="text-danger">Enter valid password *Minimum eight characters, at least one Captilize letter*</small>
+                    </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <input id="rePass" type="password" class="form-control" id="exampleFormControlInput1"
+                    placeholder="RePassword">
+                     <div class="rePassHint hint d-none mt-2 text-center rounded-3 p-2 w-100">
+                      <small class="text-danger">Enter valid repassword</small>
+                     </div>
+            </div>
+        </div>
+    </div>
+    <button id="sumbitBtn" class="btn btn-danger" disabled >Sumbit</button>
+</div>
+    
+    `);
+  }
 }

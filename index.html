@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yummy</title>
     <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/animate.css"/>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <aside class="sideBar d-flex position-fixed top-0 bottom-0 me-5">
-        <div class="sideBarInner p-5 ps-0">
+        <div class="sideBarInner d-flex flex-column justify-content-between p-5 ps-0">
             <ul class="list-unstyled pe-4">
-                <li class="mb-4"><a class="searchBtn fs-5 px-3">Search</a></li>
-                <li class="mb-4"><a class="categoriesBtn fs-5 px-3">Categories</a></li>
-                <li class="mb-4"><a class="areaBtn fs-5 px-3">Area</a></li>
-                <li class="mb-4"><a class="ingredientsBtn fs-5 px-3">Ingredients</a></li>
-                <li class="mb-4"><a class="contactBtn  fs-5 px-3">Contact Us</a></li>
+                <li class="mb-4 animate__animated"><a class="searchBtn fs-5 px-3">Search</a></li>
+                <li class="mb-4 animate__animated"><a class="categoriesBtn fs-5 px-3">Categories</a></li>
+                <li class="mb-4 animate__animated"><a class="areaBtn fs-5 px-3">Area</a></li>
+                <li class="mb-4 animate__animated"><a class="ingredientsBtn fs-5 px-3">Ingredients</a></li>
+                <li class="mb-4 animate__animated"><a class="contactBtn  fs-5 px-3">Contact Us</a></li>
             </ul>
+            <footer class="text-center ps-3">
+                <div class="socialIcons d-flex justify-content-center gap-2 mb-2 ">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <small class="text-center">Copyright Ali Elsaadany©.</small>
+            </footer>
         </div>
-        <div class="barBtn p-3 d-flex flex-column bg-white">
+        <div class="barBtn p-3 d-flex flex-column justify-content-between align-items-center bg-white">
             <div class="iconImage">
                 <img src="imgs/logo.png" class="w-100" alt="">
             </div>
-            <i class="fa fa-bars text-black fs-1 my-auto"></i>
+            <i id="menuIcon" class="fa fa-bars text-black fs-1"></i>
+            <div class="barIcons d-flex flex-column gap-2">
+                <i class="fa-solid fa-globe text-black"></i>
+                <i class="fa-solid fa-share-nodes text-black"></i>
+            </div>
         </div>
     </aside>
-    <main class="py-4">
-        <div class="container p-5">
-            <div class="row searchInputs mb-4 gy-5"></div>
-            <div class="row mainRow gy-5" > </div>
+    <main>
+        <div class="container">
+            <div class="row searchInputs mb-4 gy-5 p-5 pb-0"></div>
+            <div class="row mainRow gy-5 p-55"></div>
         </div>
     </main>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/index.js" type="module"></script>
 </body>

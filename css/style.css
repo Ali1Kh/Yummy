@@ -1,23 +1,26 @@
 /* !General */
-*{
+* {
   color: white;
+}
+:root {
+  --animate-delay: 0.5s;
 }
 a {
   text-decoration: none;
   color: white;
   cursor: pointer;
 }
-.fs-7{
+.fs-7 {
   font-size: 13px;
 }
-body{
-    background-color: #212529;
+body {
+  background-color: #212529;
 }
 /*! Side Bar */
 .barBtn {
   cursor: pointer;
 }
-.barBtn i {
+.barBtn i.menuIcon {
   transition: all 400ms;
 }
 .sideBarInner ul li a {
@@ -28,32 +31,49 @@ body{
   height: 40px;
 }
 /* !Meals and categories*/
-.uiCardItem .cardImage , .areaCardItem , .ingredientsCardItem{
-    cursor: pointer;
+.uiCardItem .cardImage,
+.areaCardItem,
+.ingredientsCardItem {
+  cursor: pointer;
 }
 .uiCardItem .cardImage .cardLayer {
   transition: all 600ms;
   top: 120%;
 }
-.uiCardItem .cardImage:hover .cardLayer{
+.uiCardItem .cardImage:hover .cardLayer {
   top: 0%;
   opacity: 1 !important;
 }
 /*! Meals Details */
-.recipes span{
-    color: black;
-    background-color: #cef4fd;
+.recipes span {
+  color: black;
+  background-color: #cef4fd;
 }
-.tags span{
-    color: rgb(132, 32, 41);
-    font-size: 17px;
-    background-color: #e7c9cb;
+.tags span {
+  color: rgb(132, 32, 41);
+  font-size: 17px;
+  background-color: #e7c9cb;
 }
 /*!Search */
-.searchName input::placeholder,.searchLetter input::placeholder{
-    color: white;
+.searchName input::placeholder,
+.searchLetter input::placeholder {
+  color: white;
 }
 /* !Area and Ingredients icons*/
-.cardIcon i{
-font-size: 50px;
+.cardIcon i {
+  font-size: 50px;
 }
+/* !Contact */
+#sumbitBtn {
+  background-color: transparent;
+  transition: background-color 400ms;
+}
+#sumbitBtn:hover {
+  background-color: #dc3545;
+}
+.hint{
+  color: rgb(132, 32, 41);
+  font-size: 18px;
+  background-color: #e7c9cb;
+}
+/* !Animation Plugin */

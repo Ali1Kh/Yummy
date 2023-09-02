@@ -4,7 +4,7 @@ export class searchMeals {
   constructor() {
     this.ui = new ui();
     this.ui.displaySearch();
-    this.home = new Meals();
+    this.meals = new Meals();
     $(".searchName input").keyup(() => {
       this.searchName($(".searchName input").val());
     });
@@ -18,7 +18,7 @@ export class searchMeals {
     );
     let resultData = await apiRespone.json();
     this.ui.displayMeals(resultData.meals);
-    // this.home.sendDetails();
+    this.meals.sendMealDetails();
   }
   async searchLetter(mealName) {
     let apiRespone = await fetch(
@@ -26,6 +26,6 @@ export class searchMeals {
     );
     let resultData = await apiRespone.json();
     this.ui.displayMeals(resultData.meals);
-    // this.home.sendDetails();
+    this.meals.sendMealDetails();
   }
 }
