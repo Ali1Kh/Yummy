@@ -4,6 +4,7 @@ export class Meals {
     this.homeUi = new ui();
   }
   async getMeals() {
+    this.homeUi.displayLoadPage();
     let apiRespone = await fetch(
       `https://www.themealdb.com/api/json/v1/1/search.php?s=`
     );
@@ -13,9 +14,8 @@ export class Meals {
   }
   sendMealDetails() {
     $(".uiCardItem").click((e) => {
-      this.getDetails(
-        $($(e.target).parents(".uiCardItem")).attr("data-id")
-      );
+      this.homeUi.displayLoadPage();
+      this.getDetails($($(e.target).parents(".uiCardItem")).attr("data-id"));
     });
   }
   async getDetails(mealId) {
@@ -24,5 +24,8 @@ export class Meals {
     );
     let resultData = await apiRespone.json();
     this.homeUi.displayMealDetailes(resultData.meals[0]);
+    $(".close").click(() => {
+      this.getMeals();
+    });
   }
 }

@@ -2,11 +2,13 @@ import { Meals } from "./meals.js";
 import { ui } from "./ui.js";
 export class Categories {
   constructor() {
-    this.getCategories();
     this.homeUi = new ui();
+    this.homeUi.displayLoadPage();
+    this.getCategories();
     this.meals = new Meals();
   }
   async getCategories() {
+    this.homeUi.displayLoadPage();
     let apiRespone = await fetch(
       `https://www.themealdb.com/api/json/v1/1/categories.php`
     );
@@ -22,6 +24,7 @@ export class Categories {
     });
   }
   async getCategoryMeals(categoryName) {
+    this.homeUi.displayLoadPage();
     let apiRespone = await fetch(
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`
     );

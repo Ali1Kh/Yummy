@@ -8,7 +8,7 @@ export class ui {
     for (let i = 0; i < meal.length; i++) {
       this.meals += `
 <div class="col-xxl-3 col-lg-4 col-md-6">
-<div class="uiCardItem rounded-3 overflow-hidden" data-id=${meal[i].idMeal}>
+<div class="uiCardItem meals rounded-3 overflow-hidden" data-id=${meal[i].idMeal}>
     <div class="cardImage position-relative">
         <img class="w-100" src= ${meal[i].strMealThumb} alt="">
         <div class="cardLayer opacity-0 d-flex align-items-center position-absolute bottom-0 start-0 end-0 bg-white bg-opacity-75">
@@ -19,6 +19,9 @@ export class ui {
 </div>`;
     }
     $("main .row.mainRow").html(this.meals);
+    $("main .row.mainRow .uiCardItem.meals").ready(() => {
+      this.displayPageLoaded();
+    });
   }
   displayMealDetailes(mealDetails) {
     this.tags = ``;
@@ -46,7 +49,10 @@ export class ui {
     <h3>${mealDetails.strMeal}</h3>
 </div>
 <div class="col-md-8">
-    <h2>Instructions</h2>
+<div class="header textGray d-flex justify-content-between">
+                    <h3>Instructions</h3>
+                    <button class="close border-0 bg-transparent"><i class=" fs-3 fa fa-xmark"></i></button>
+                </div>
     <p>${mealDetails.strInstructions}</p>
     <div class="infoItem fs-4 fw-semibold mb-2">
         <span>Area : </span><span>${mealDetails.strArea}</span>
@@ -67,6 +73,9 @@ export class ui {
     </div>
 </div>
     `);
+    $("main .row.mainRow").ready(() => {
+      this.displayPageLoaded();
+    });
   }
   displaySearch() {
     $("main .row.mainRow").html("");
@@ -83,6 +92,9 @@ export class ui {
       placeholder="Search By First Letter"  maxlength="1">
     </div>
    </div>`);
+    $("main .row.searchInputs").ready(() => {
+      this.displayPageLoaded();
+    });
   }
   displayCategories(categories) {
     this.categoriesContainer = ``;
@@ -105,6 +117,9 @@ export class ui {
 </div>`;
     }
     $("main .row.mainRow").html(this.categoriesContainer);
+    $("main .row.mainRow .uiCardItem").ready(() => {
+      this.displayPageLoaded();
+    });
   }
   displayAreas(areas) {
     this.areasContainer = ``;
@@ -120,6 +135,9 @@ export class ui {
 </div>`;
     }
     $("main .row.mainRow").html(this.areasContainer);
+    $("main .row.mainRow .areaCardItem").ready(() => {
+      this.displayPageLoaded();
+    });
   }
   displayIngredients(ingredients) {
     this.ingredientsContainer = ``;
@@ -135,12 +153,15 @@ export class ui {
 </div>`;
     }
     $("main .row.mainRow").html(this.ingredientsContainer);
+    $("main .row.mainRow .ingredientsCardItem").ready(() => {
+      this.displayPageLoaded();
+    });
   }
   displayContact() {
     $("main .row.mainRow").html(`
     <div class="contactContainer vh-100 d-flex flex-column align-items-center justify-content-center">
     <div class="row mb-2 gy-2">
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="mb-3">
                 <input id="name" type="text" class="form-control" id="exampleFormControlInput1"
                     placeholder="Enter Your Name">
@@ -149,7 +170,7 @@ export class ui {
                     </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="mb-3">
                 <input id="email" type="email" class="form-control" id="exampleFormControlInput1"
                     placeholder="Enter Your Email">
@@ -159,7 +180,7 @@ export class ui {
             </div>
             
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="mb-3">
                 <input id="phone" type="text" class="form-control" id="exampleFormControlInput1"
                     placeholder="Enter Your Phone">
@@ -169,7 +190,7 @@ export class ui {
              </div>
             </div>
             
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="mb-3 ">
                 <input id="age" min="0" max="100" type="number" class="form-control" id="exampleFormControlInput1"
                     placeholder="Enter Your Age">
@@ -178,7 +199,7 @@ export class ui {
                     </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="mb-3">
                 <input id="pass" type="password" class="form-control" id="exampleFormControlInput1"
                     placeholder="Enter Your Password">
@@ -187,7 +208,7 @@ export class ui {
                     </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="mb-3">
                 <input id="rePass" type="password" class="form-control" id="exampleFormControlInput1"
                     placeholder="RePassword">
@@ -199,7 +220,25 @@ export class ui {
     </div>
     <button id="sumbitBtn" class="btn btn-danger" disabled >Sumbit</button>
 </div>
-    
     `);
+    $("main .contactContainer").ready(() => {
+      this.displayPageLoaded();
+    });
+  }
+  displayLoadPage() {
+    $(".loading").fadeIn();
+    $(".spinner").fadeIn();
+    $(".loading").addClass("d-flex");
+    $(".loading").removeClass("d-none");
+    $("body").css("overflow", "hidden");
+  }
+  displayPageLoaded() {
+    $(".spinner").fadeOut(900, function () {
+      $(".loading").fadeOut(1000, function () {
+        $("body").css("overflow", "auto");
+        $(".loading").removeClass("d-flex");
+        $(".loading").addClass("d-none");
+      });
+    });
   }
 }

@@ -2,11 +2,13 @@ import { Meals } from "./meals.js";
 import { ui } from "./ui.js";
 export class Ingredients {
   constructor() {
-    this.getIngredients();
     this.homeUi = new ui();
+    this.homeUi.displayLoadPage();
+    this.getIngredients();
     this.meals = new Meals();
   }
   async getIngredients() {
+    this.homeUi.displayLoadPage();
     let apiRespone = await fetch(
       `https://www.themealdb.com/api/json/v1/1/list.php?i=list`
     );
@@ -22,11 +24,11 @@ export class Ingredients {
     });
   }
   async getIngredientsMeals(ingredientsName) {
+    this.homeUi.displayLoadPage();
     let apiRespone = await fetch(
       `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredientsName}`
     );
     let resultData = await apiRespone.json();
-    console.log(ingredientsName);
     this.homeUi.displayMeals(resultData.meals);
     this.meals.sendMealDetails();
   }

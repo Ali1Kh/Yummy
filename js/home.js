@@ -10,6 +10,9 @@ export class Home {
     new Meals().getMeals();
     this.ui = new ui();
     // !Sections Buttons
+    $(".sideBar .sideBarInner li a").click(() => {
+      this.closeSideBar();
+    });
     $(".searchBtn").click(() => {
       new searchMeals();
     });
@@ -29,7 +32,6 @@ export class Home {
     $($(".searchBtn").parent().siblings()).click(() => {
       $("main .row.searchInputs").html("");
     });
-
     //! Side Bar Toggle
     this.innerWidth = $(".sideBarInner").innerWidth();
     $(".sideBar").css("left", -this.innerWidth);
@@ -40,28 +42,31 @@ export class Home {
         this.openSideBar();
       }
     });
-    $(".sideBar .sideBarInner li a").click(() => {
-      this.closeSideBar();
-    });
-
     $("main").click(() => {
       this.closeSideBar();
     });
   }
-
   openSideBar() {
     $(".sideBar").animate({ left: "0px" }, 400);
     $(".sideBar .barBtn #menuIcon").addClass("fa-xmark");
     $(".sideBar .barBtn #menuIcon").removeClass("fa-bars");
     // ? Animate list
-    $(".sideBar .sideBarInner li").eq(0).addClass("animate__fadeInUp animate__delay-150ms");
-    $(".sideBar .sideBarInner li").eq(1).addClass("animate__fadeInUp animate__delay-200ms");
-    $(".sideBar .sideBarInner li").eq(2).addClass("animate__fadeInUp animate__delay-250ms");
-    $(".sideBar .sideBarInner li").eq(3).addClass("animate__fadeInUp animate__delay-300ms");
-    $(".sideBar .sideBarInner li").eq(4).addClass("animate__fadeInUp animate__delay-350ms");
-
+    $(".sideBar .sideBarInner li")
+      .eq(0)
+      .addClass("animate__fadeInUp animate__delay-150ms");
+    $(".sideBar .sideBarInner li")
+      .eq(1)
+      .addClass("animate__fadeInUp animate__delay-200ms");
+    $(".sideBar .sideBarInner li")
+      .eq(2)
+      .addClass("animate__fadeInUp animate__delay-250ms");
+    $(".sideBar .sideBarInner li")
+      .eq(3)
+      .addClass("animate__fadeInUp animate__delay-300ms");
+    $(".sideBar .sideBarInner li")
+      .eq(4)
+      .addClass("animate__fadeInUp animate__delay-350ms");
   }
-
   closeSideBar() {
     $(".sideBar").animate({ left: -this.innerWidth }, 400);
     $(".sideBar .barBtn #menuIcon").addClass("fa-bars");

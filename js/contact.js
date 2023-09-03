@@ -2,6 +2,7 @@ import { ui } from "./ui.js";
 export class Contact {
   constructor() {
     this.ui = new ui();
+    this.ui.displayLoadPage();
     this.ui.displayContact();
     this.name = $("#name");
     this.email = $("#email");
@@ -34,7 +35,9 @@ export class Contact {
       this.checkFinish();
     });
     $("#sumbitBtn").click(() => {
+      this.ui.displayLoadPage();
       this.clear();
+      this.ui.displayPageLoaded();
     });
   }
   validateName() {
@@ -77,8 +80,8 @@ export class Contact {
     } else {
       this.phone.addClass("is-valid");
       this.phone.removeClass("is-invalid");
-      $(".phoneHint").addClass("d-none")
-      $(".phoneHint").removeClass("d-block")
+      $(".phoneHint").addClass("d-none");
+      $(".phoneHint").removeClass("d-block");
     }
     return regex.test(this.phone.val());
   }
@@ -107,8 +110,8 @@ export class Contact {
     } else {
       this.pass.addClass("is-valid");
       this.pass.removeClass("is-invalid");
-      $(".passHint").addClass("d-none")
-      $(".passHint").removeClass("d-block")
+      $(".passHint").addClass("d-none");
+      $(".passHint").removeClass("d-block");
     }
     return regex.test(this.pass.val());
   }
@@ -122,8 +125,8 @@ export class Contact {
     } else if (this.rePass.val() == this.pass.val() && this.validatePass()) {
       this.rePass.addClass("is-valid");
       this.rePass.removeClass("is-invalid");
-      $(".rePassHint").addClass("d-none")
-      $(".rePassHint").removeClass("d-block")
+      $(".rePassHint").addClass("d-none");
+      $(".rePassHint").removeClass("d-block");
       return true;
     }
   }
@@ -144,7 +147,9 @@ export class Contact {
         this.validatePass() &&
         this.validateRePass()
       ) {
-        $("#sumbitBtn").removeAttr("disabled");
+        $("#sumbitBtn").attr("disabled", false);
+      } else {
+        $("#sumbitBtn").attr("disabled", true);
       }
     }
   }

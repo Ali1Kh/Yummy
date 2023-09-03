@@ -3,6 +3,7 @@ import { ui } from "./ui.js";
 export class searchMeals {
   constructor() {
     this.ui = new ui();
+    this.ui.displayLoadPage();
     this.ui.displaySearch();
     this.meals = new Meals();
     $(".searchName input").keyup(() => {
@@ -13,6 +14,7 @@ export class searchMeals {
     });
   }
   async searchName(mealName) {
+    this.ui.displayLoadPage();
     let apiRespone = await fetch(
       `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`
     );
@@ -21,6 +23,7 @@ export class searchMeals {
     this.meals.sendMealDetails();
   }
   async searchLetter(mealName) {
+    this.ui.displayLoadPage();
     let apiRespone = await fetch(
       `https://www.themealdb.com/api/json/v1/1/search.php?f=${mealName}`
     );
